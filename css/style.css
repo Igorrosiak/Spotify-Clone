@@ -262,12 +262,80 @@ html, body{height: 100%;}
     }
 }
 
+@media screen and (max-width: 950px) {
+    .sidebar{
+        width: 25%;
+    }
+    .main{
+        width: 75%;
+    }
+}
+
 @media screen and (max-width: 768px) {
-    .main{width: 100%;}
+    .main{
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+    .main__row{
+        justify-content: center;
+    }
     .sidebar{
         display: none;
     }
     .main__col{
-        width: 50%;
+        width: 30%;
     }
+}
+
+@media screen and (max-width: 700px) {
+    
+    .main{
+        padding: 7.5px 25px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+
+    .main{
+        padding: 5px 22px;
+    }
+
+    .main__col{
+        border-radius: 6px;
+        padding: 5px;
+    }
+    
+    .main__col h3{
+        margin: 4px 0;
+    }
+    
+    .main__col p{
+        margin: 4px 0;
+        font-size: 10px;
+    }
+
+    .main__row__title h2{
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .main__row__title h2{
+        font-size: 1.1em;
+    }
+
+    .main{
+        padding: 3px 0px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .main__row__title h2{
+        font-size: 0.9em;
+    }
+
 }
