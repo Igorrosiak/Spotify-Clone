@@ -27,9 +27,8 @@ playBtn.addEventListener('click', (e) => {
 
 const playSong = (file) => {
 
-    let musicaAtual = audioPlayer.innerHTML
-    document.getElementById('audioplayer').play()
-    if (musicaAtual !== `<source src="${file}" type="audio/mp3">`) {
+    console.log(file)
+    if (audioPlayer.innerHTML !== `<source src="${file}" type="audio/mp3">`) {
         document.getElementById('audioplayer').play()
         audioPlayer.innerHTML = `<source src="${file}" type="audio/mp3">`;
     }
