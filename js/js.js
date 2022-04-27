@@ -1,44 +1,48 @@
-var audioPlayer = document.getElementById('audioplayer');
+var containerAudio = document.getElementById('containerAudio')
 var loaded = false;
-
 var playBtn = document.getElementById('playBtn');
 var pauseBtn = document.getElementById('pauseBtn');
 
 pauseBtn.addEventListener('click', (e) => {
     e.preventDefault();
-
     playBtn.style.display = "inline";
     pauseBtn.style.display = "none";
-    audioPlayer.pause();
-
+    document.getElementById('audioplayer').pause();
     return false;
 });
 
 playBtn.addEventListener('click', (e) => {
-
     e.preventDefault();
-
     playBtn.style.display = "none";
     pauseBtn.style.display = "inline";
-    audioPlayer.play();
-
+    document.getElementById('audioplayer').play();
     return false;
 });
 
-const playSong = (file) => {
-
-    console.log(file)
-    if (audioPlayer.innerHTML !== `<source src="${file}" type="audio/mp3">`) {
-        document.getElementById('audioplayer').play()
-        audioPlayer.innerHTML = `<source src="${file}" type="audio/mp3">`;
+const playSong = async (file) => {
+    if (containerAudio.innerHTML == '') {
+        containerAudio.innerHTML = `<audio src="${file}" id="audioplayer"></audio>`;
+        if (document.getElementById('audioplayer').paused) {
+            document.getElementById('audioplayer').play()
+        } else {
+            document.getElementById('audioplayer').pause()
+        }
     }
-    // else{
-    //     document.getElementById('audioplayer').play()
-    // }
+    else if (containerAudio.innerHTML !== `<audio src="${file}" id="audioplayer"></audio>`) {
+        if (document.getElementById('audioplayer').paused) {
+            document.getElementById('audioplayer').play()
+        } else {
+            document.getElementById('audioplayer').pause()
+        }
+        containerAudio.innerHTML = `<audio src="${file}" id="audioplayer"></audio>`
+    }
+    else {
+        document.getElementById('audioplayer').play()
+    }
     playBtn.style.display = "none";
     pauseBtn.style.display = "inline";
 }
-let musicaAtual;
+
 document.querySelectorAll('.main__col').forEach(item => {
 
     item.addEventListener('click', event => {
@@ -46,13 +50,11 @@ document.querySelectorAll('.main__col').forEach(item => {
         let artist = item.getAttribute('data-artist');
         let song = item.getAttribute('data-song');
         let file = item.getAttribute('data-file');
-
         let playerArtistComponent = document.getElementsByClassName('player__artist');
-
         playerArtistComponent[0].innerHTML = `<img src="` + image + `" />
         <h3>`+ artist + `<br/><span>` + song + `</span></h3>
         `;
-        document.getElementById('audioplayer').pause()
-        playSong(file);
+        playSong(file)
+        document.getElementById('audioplayer').play()
     })
 });
