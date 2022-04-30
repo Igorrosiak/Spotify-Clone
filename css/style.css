@@ -255,6 +255,61 @@ html, body{height: 100%;}
     background-color: white;
 }
 
+@media screen and (min-width: 2000px) {
+    .main__col{
+        width: 15%;
+    }
+
+    .sidebar{
+        width: 15%;
+    }
+
+    .main{
+        width: 85%;
+    }
+
+    .player{
+        height: 150px;
+    }
+
+    .player__artist{
+        width: 20%;
+    }
+    
+    .player__artist img{
+        max-width: 100px;
+        margin-right: 20px;
+    }
+    
+    .player__artist h3{
+        font-size: 28px;
+    }
+    
+    .player__artist h3 > span{
+        color: rgb(200, 200, 200);
+        font-size: 17px;
+    }
+    
+    .player__control{
+        width: 70%;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .player__control__buttons a{
+        font-size: 30px;
+    }
+    
+    .player__control__progress{
+        max-width: 800px;
+        height: 15px;
+    }
+    
+    .player__control__progress__2{
+        height: 15px;
+    }
+}
+
 @media screen and (max-width: 1315px) {
 
     .player__artist{
