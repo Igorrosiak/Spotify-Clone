@@ -198,6 +198,11 @@ html, body{height: 100%;}
     bottom: 0;
     display: flex;
     background-color: rgb(60, 60, 60);
+    display: none;
+}
+
+.active{
+    display: flex;
 }
 
 .player__artist{
@@ -385,17 +390,6 @@ html, body{height: 100%;}
 
 @media screen and (max-width: 630px) {
 
-    .player__artist h3{
-        font-size: 17px;
-    }
-    
-    .player__artist h3 > span{
-        font-size: 10px;
-    }
-}
-
-@media screen and (max-width: 550px) {
-
     .main{
         padding: 5px 22px;
     }
@@ -420,7 +414,6 @@ html, body{height: 100%;}
 
     .player{
         height: 160px;
-        display: block;
         margin: auto;
         padding: 10px;
     }
@@ -436,6 +429,14 @@ html, body{height: 100%;}
         margin-right: 5px;
     }
 
+    .player__artist h3{
+        font-size: 17px;
+    }
+    
+    .player__artist h3 > span{
+        font-size: 10px;
+    }
+
     .player__control{
         width: 100%;
     }
@@ -447,6 +448,10 @@ html, body{height: 100%;}
 
     .player__control__buttons{
         margin-top: 15px;
+    }
+
+    .active{
+        display: block;
     }
 }
 

@@ -56,5 +56,6 @@ document.querySelectorAll('.main__col').forEach(item => {
         `;
         playSong(file)
         document.getElementById('audioplayer').play()
+        document.querySelector('div.player').classList.add('active')
     })
 });
